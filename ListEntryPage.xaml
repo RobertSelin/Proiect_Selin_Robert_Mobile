@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proiect_Selin_Robert_Mobile.ListEntryPage"
+             Title="ListEntryPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Fa un plan"
+                     Clicked="OnBookingListAddedClicked"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <HorizontalStackLayout Spacing="10">
+            <Image Source="list.png" 
+                   SemanticProperties.Description="Plan list"
+                   HeightRequest="64"/>
+            <Label FontSize="22" FontAttributes="Bold" Text="Planurile mele" VerticalOptions="End"/>
+        </HorizontalStackLayout>
+        <Label Text="Aici vor fi listate planurile tale sportive."/>
+        <ListView x:Name="listView"
+              Margin="20"
+              ItemSelected="OnListViewItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding PlanForTheWeek}"
+                          Detail="{Binding Date}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
