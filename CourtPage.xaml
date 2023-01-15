@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proiect_Selin_Robert_Mobile.CourtPage"
+             Title="Adauga Baza">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Editor Placeholder="Introduceti o baza sportiva" Margin="20"
+                    Text="{Binding CourtName}"
+                    HeightRequest="50"/>
+            <Editor Placeholder="Introduceti o adresa" Margin="20"
+                    Text="{Binding Adress}"
+                    HeightRequest="50"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Salveaza Baza" Grid.Column="0" MaximumWidthRequest="200" Clicked="OnSaveButtonClicked"/>
+                <Button Text="Arata pe Harta" Grid.Column="1" MaximumWidthRequest="200" Clicked="OnShowMapButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

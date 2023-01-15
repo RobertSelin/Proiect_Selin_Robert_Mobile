@@ -11,12 +11,15 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-        <ShellContent
+        <!--<ShellContent
             Title="Plans"
-            ContentTemplate="{DataTemplate local:AboutPage}"/>
+            ContentTemplate="{DataTemplate local:AboutPage}"/>-->
         <ShellContent
             Title="My Plan List"
             ContentTemplate="{DataTemplate local:ListEntryPage}"/>
+        <ShellContent
+            Title="My Courts"
+            ContentTemplate="{DataTemplate local:CourtEntryPage}"/>
     </TabBar>
 
 </Shell>

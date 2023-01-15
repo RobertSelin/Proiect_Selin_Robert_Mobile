@@ -13,6 +13,8 @@ public partial class ListPage : ContentPage
 	{
 		var blist = (BookingList)BindingContext;
 		blist.Date = DateTime.UtcNow;
+		Court selectedCourt = (CourtPicker.SelectedItem as Court);
+		blist.CourtID = selectedCourt.ID;
 		await App.Database.SaveBookingListAsync(blist);
 		await Navigation.PopAsync();
 	}
@@ -35,7 +37,13 @@ public partial class ListPage : ContentPage
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
+
+		var items = await App.Database.GetCourtsAsync();
+		CourtPicker.ItemsSource = (System.Collections.IList)items;
+		CourtPicker.ItemDisplayBinding = new Binding("CourtDetails");
+
 		var sportl = (BookingList)BindingContext;
 		listView.ItemsSource = await App.Database.GetListSportsAsync(sportl.ID);
 	}
+
 }

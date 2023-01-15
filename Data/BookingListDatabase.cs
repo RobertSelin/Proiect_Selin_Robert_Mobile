@@ -19,6 +19,7 @@ namespace Proiect_Selin_Robert_Mobile.Data
             _database.CreateTableAsync<BookingList>().Wait();
             _database.CreateTableAsync<Sport>().Wait();
             _database.CreateTableAsync<ListSport>().Wait();
+            _database.CreateTableAsync<Court>().Wait();
         }
 
         // pt sporturi preferate
@@ -45,6 +46,7 @@ namespace Proiect_Selin_Robert_Mobile.Data
             return _database.Table<Sport>().ToListAsync();
         }
 
+        //sporturi preferate end
 
         public Task<List<BookingList>> GetBookingListsAsync()
         {
@@ -88,9 +90,31 @@ namespace Proiect_Selin_Robert_Mobile.Data
         public Task<List<Sport>> GetListSportsAsync(int sportlistid)
         {
             return _database.QueryAsync<Sport>(
-                "select S.ID, S.SportName from Sport S"
-                + "inner join ListSport LS" 
-                + "on S.ID = LS.SportID where LS.BookingListID = ?", sportlistid);
+            "select S.ID, S.SportName from Sport S"
+            + " inner join ListSport LS" 
+            + " on S.ID = LS.SportID where LS.BookingListID = ?", 
+            sportlistid);
         }
+
+        // Court
+
+        public Task<List<Court>> GetCourtsAsync()
+        {
+            return _database.Table<Court>().ToListAsync();
+        }
+
+        public Task<int> SaveCourtAsync(Court court)
+        {
+            if (court.ID != 0)
+            {
+                return _database.UpdateAsync(court);
+            }
+            else
+            {
+                return _database.InsertAsync(court);
+            }
+
+        }
+
     }
 }

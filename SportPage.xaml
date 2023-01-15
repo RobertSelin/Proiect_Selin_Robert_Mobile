@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Proiect_Selin_Robert_Mobile.SportPage"
-             Title="SportPage">
+             Title="Adauga Sport">
     <ContentPage.Content>
         <StackLayout Margin="20">
             <Editor
-                Placeholder="Introdu un sport preferat pe care il practici mai des"
+                Placeholder="Introduceti un sport preferat pe care il practici mai des"
                 Margin="20"
                 Text="{Binding SportName}"
-                HeightRequest="30"/>
+                HeightRequest="70"/>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -22,7 +22,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Text="Salveaza Sportul" MaximumWidthRequest="150" Clicked="OnSaveButtonClicked"/>
                 <Button Grid.Column="1"
-                        Text="Delete Product"
+                        Text="Sterge Sport"
                         MaximumWidthRequest="200"
                         Clicked="OnDeleteButtonClicked"/>
                 <ListView Grid.Row="1" Grid.Column="0" x:Name="listView" Margin="20" IsRefreshing="True">
@@ -32,7 +32,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Grid.Column="0" Text="Adauga in lista de planuri" Clicked="OnAddButtonClicked"/>
+                <Button Grid.Row="2" Grid.Column="0" Text="Adauga in lista" Clicked="OnAddButtonClicked"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

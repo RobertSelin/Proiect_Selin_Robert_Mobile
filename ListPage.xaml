@@ -2,16 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Proiect_Selin_Robert_Mobile.ListPage"
-             Title="ListPage"
+             Title="Adauga plan"
              xmlns:local="clr-namespace:Proiect_Selin_Robert_Mobile">
     <StackLayout Margin="20">
-        <Editor Placeholder="Aici poti un plan sportiv pe urmatoarea perioada"
+        <Editor Placeholder="Aici poti adauga un plan sportiv pe urmatoarea perioada"
                 Text="{Binding PlanForTheWeek}"
-                HeightRequest="50">
+                HeightRequest="70"
+                TextColor="Black">
             <Editor.Behaviors>
                 <local:ValidationBehaviour/>
             </Editor.Behaviors>
         </Editor>
+        <Picker x:Name="CourtPicker" Title="Alege o baza sportiva" Margin="20"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -23,12 +25,13 @@
         <ListView x:Name="listView" Margin="20">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Detail="{Binding PlanForTheWeek}"/>
+                    <TextCell Detail="{Binding PlanForTheWeek}"
+                              TextColor="Black"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         
-        <Button Text="Adauga/Alege un sport pe care vrei sa il practici"
+        <Button Text="Adauga/Alege un sport"
                 MaximumWidthRequest="300"
                 Clicked="OnChooseButtonClicked"/>
     </StackLayout>
